@@ -9,21 +9,49 @@
 /* Begin PBXBuildFile section */
 		938FC45B262EE75B0028F943 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC45A262EE75B0028F943 /* AppDelegate.swift */; };
 		938FC45D262EE75B0028F943 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC45C262EE75B0028F943 /* SceneDelegate.swift */; };
-		938FC45F262EE75B0028F943 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC45E262EE75B0028F943 /* ViewController.swift */; };
-		938FC462262EE75B0028F943 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 938FC460262EE75B0028F943 /* Main.storyboard */; };
 		938FC464262EE75D0028F943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 938FC463262EE75D0028F943 /* Assets.xcassets */; };
 		938FC467262EE75D0028F943 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 938FC465262EE75D0028F943 /* LaunchScreen.storyboard */; };
+		938FC472262EE8050028F943 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC471262EE8050028F943 /* LoginController.swift */; };
+		938FC477262EE8A60028F943 /* CostumLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC476262EE8A60028F943 /* CostumLabel.swift */; };
+		938FC48626304B470028F943 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC48526304B470028F943 /* Extension.swift */; };
+		938FC4A226304BB10028F943 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC4A126304BB10028F943 /* RegisterController.swift */; };
+		938FC4A826304BE60028F943 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC4A726304BE60028F943 /* HomeViewController.swift */; };
+		938FC4D2263059290028F943 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 938FC4D1263059290028F943 /* Nunito-Regular.ttf */; };
+		938FC4D52630593D0028F943 /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 938FC4D42630593D0028F943 /* Nunito-ExtraBold.ttf */; };
+		938FC4D8263059500028F943 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 938FC4D7263059500028F943 /* Nunito-Light.ttf */; };
+		938FC4DF2630AED40028F943 /* CostumTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC4DE2630AED40028F943 /* CostumTextField.swift */; };
+		938FC4E22630BF660028F943 /* CostumTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC4E12630BF660028F943 /* CostumTextButton.swift */; };
+		938FC4E52630C25A0028F943 /* CostumButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC4E42630C25A0028F943 /* CostumButton.swift */; };
+		938FC4E8263133100028F943 /* CostumTextButton2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC4E7263133100028F943 /* CostumTextButton2.swift */; };
+		938FC4ED26313D880028F943 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC4EC26313D880028F943 /* ResetPasswordController.swift */; };
+		93B05CEC2631846D000781DA /* CostumIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B05CEB2631846D000781DA /* CostumIcon.swift */; };
+		93C60A4F2631B3AA00454F55 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C60A4E2631B3AA00454F55 /* AuthenticationViewModel.swift */; };
+		93C60A522631B3FD00454F55 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C60A512631B3FD00454F55 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		938FC457262EE75B0028F943 /* LogUserInApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogUserInApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		938FC45A262EE75B0028F943 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		938FC45C262EE75B0028F943 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		938FC45E262EE75B0028F943 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		938FC461262EE75B0028F943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		938FC463262EE75D0028F943 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		938FC466262EE75D0028F943 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		938FC468262EE75D0028F943 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		938FC471262EE8050028F943 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		938FC476262EE8A60028F943 /* CostumLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumLabel.swift; sourceTree = "<group>"; };
+		938FC48526304B470028F943 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		938FC4A126304BB10028F943 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		938FC4A726304BE60028F943 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		938FC4D1263059290028F943 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Regular.ttf"; path = "SignUpApp/Fonts/Nunito/Nunito-Regular.ttf"; sourceTree = SOURCE_ROOT; };
+		938FC4D42630593D0028F943 /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-ExtraBold.ttf"; path = "SignUpApp/Fonts/Nunito/Nunito-ExtraBold.ttf"; sourceTree = SOURCE_ROOT; };
+		938FC4D7263059500028F943 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Nunito-Light.ttf"; path = "SignUpApp/Fonts/Nunito/Nunito-Light.ttf"; sourceTree = SOURCE_ROOT; };
+		938FC4DE2630AED40028F943 /* CostumTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumTextField.swift; sourceTree = "<group>"; };
+		938FC4E12630BF660028F943 /* CostumTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumTextButton.swift; sourceTree = "<group>"; };
+		938FC4E42630C25A0028F943 /* CostumButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumButton.swift; sourceTree = "<group>"; };
+		938FC4E7263133100028F943 /* CostumTextButton2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumTextButton2.swift; sourceTree = "<group>"; };
+		938FC4EC26313D880028F943 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
+		93B05CEB2631846D000781DA /* CostumIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostumIcon.swift; sourceTree = "<group>"; };
+		93C60A4E2631B3AA00454F55 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		93C60A512631B3FD00454F55 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +86,83 @@
 			children = (
 				938FC45A262EE75B0028F943 /* AppDelegate.swift */,
 				938FC45C262EE75B0028F943 /* SceneDelegate.swift */,
-				938FC45E262EE75B0028F943 /* ViewController.swift */,
-				938FC460262EE75B0028F943 /* Main.storyboard */,
+				938FC47C262EE8F00028F943 /* Model */,
+				938FC47B262EE8DA0028F943 /* ViewModel */,
+				938FC479262EE8D00028F943 /* View */,
+				938FC474262EE8520028F943 /* Controllers */,
 				938FC463262EE75D0028F943 /* Assets.xcassets */,
 				938FC465262EE75D0028F943 /* LaunchScreen.storyboard */,
 				938FC468262EE75D0028F943 /* Info.plist */,
+				938FC48826304B520028F943 /* Extension */,
 			);
 			path = LogUserInApp;
+			sourceTree = "<group>";
+		};
+		938FC474262EE8520028F943 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				938FC49F26304B920028F943 /* Authentication */,
+				938FC4A726304BE60028F943 /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		938FC479262EE8D00028F943 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				938FC476262EE8A60028F943 /* CostumLabel.swift */,
+				938FC4DE2630AED40028F943 /* CostumTextField.swift */,
+				938FC4E12630BF660028F943 /* CostumTextButton.swift */,
+				938FC4E7263133100028F943 /* CostumTextButton2.swift */,
+				938FC4E42630C25A0028F943 /* CostumButton.swift */,
+				93B05CEB2631846D000781DA /* CostumIcon.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		938FC47B262EE8DA0028F943 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				93C60A4E2631B3AA00454F55 /* AuthenticationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		938FC47C262EE8F00028F943 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				93C60A512631B3FD00454F55 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		938FC48826304B520028F943 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				938FC4D0263058F80028F943 /* Fonts */,
+				938FC48526304B470028F943 /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		938FC49F26304B920028F943 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				938FC471262EE8050028F943 /* LoginController.swift */,
+				938FC4EC26313D880028F943 /* ResetPasswordController.swift */,
+				938FC4A126304BB10028F943 /* RegisterController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		938FC4D0263058F80028F943 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				938FC4D42630593D0028F943 /* Nunito-ExtraBold.ttf */,
+				938FC4D1263059290028F943 /* Nunito-Regular.ttf */,
+				938FC4D7263059500028F943 /* Nunito-Light.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,9 +222,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				938FC4D2263059290028F943 /* Nunito-Regular.ttf in Resources */,
+				938FC4D8263059500028F943 /* Nunito-Light.ttf in Resources */,
 				938FC467262EE75D0028F943 /* LaunchScreen.storyboard in Resources */,
 				938FC464262EE75D0028F943 /* Assets.xcassets in Resources */,
-				938FC462262EE75B0028F943 /* Main.storyboard in Resources */,
+				938FC4D52630593D0028F943 /* Nunito-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +237,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				938FC45F262EE75B0028F943 /* ViewController.swift in Sources */,
+				938FC48626304B470028F943 /* Extension.swift in Sources */,
+				938FC4DF2630AED40028F943 /* CostumTextField.swift in Sources */,
+				93C60A4F2631B3AA00454F55 /* AuthenticationViewModel.swift in Sources */,
+				938FC4ED26313D880028F943 /* ResetPasswordController.swift in Sources */,
 				938FC45B262EE75B0028F943 /* AppDelegate.swift in Sources */,
+				938FC4E22630BF660028F943 /* CostumTextButton.swift in Sources */,
+				93B05CEC2631846D000781DA /* CostumIcon.swift in Sources */,
+				938FC4A226304BB10028F943 /* RegisterController.swift in Sources */,
+				93C60A522631B3FD00454F55 /* User.swift in Sources */,
+				938FC4A826304BE60028F943 /* HomeViewController.swift in Sources */,
+				938FC472262EE8050028F943 /* LoginController.swift in Sources */,
+				938FC4E8263133100028F943 /* CostumTextButton2.swift in Sources */,
 				938FC45D262EE75B0028F943 /* SceneDelegate.swift in Sources */,
+				938FC477262EE8A60028F943 /* CostumLabel.swift in Sources */,
+				938FC4E52630C25A0028F943 /* CostumButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		938FC460262EE75B0028F943 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				938FC461262EE75B0028F943 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		938FC465262EE75D0028F943 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
