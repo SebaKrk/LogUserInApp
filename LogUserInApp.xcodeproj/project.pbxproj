@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		935B5D9D2632C6CC00EAF57D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 935B5D9C2632C6CC00EAF57D /* IQKeyboardManagerSwift */; };
+		935B5DA12632CAF200EAF57D /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 935B5DA02632CAF200EAF57D /* SideMenu */; };
+		935B5DA42632CB4300EAF57D /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B5DA32632CB4300EAF57D /* SideMenuViewController.swift */; };
 		938FC45B262EE75B0028F943 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC45A262EE75B0028F943 /* AppDelegate.swift */; };
 		938FC45D262EE75B0028F943 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938FC45C262EE75B0028F943 /* SceneDelegate.swift */; };
 		938FC464262EE75D0028F943 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 938FC463262EE75D0028F943 /* Assets.xcassets */; };
@@ -31,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		935B5DA32632CB4300EAF57D /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		938FC457262EE75B0028F943 /* LogUserInApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogUserInApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		938FC45A262EE75B0028F943 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		938FC45C262EE75B0028F943 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				935B5DA12632CAF200EAF57D /* SideMenu in Frameworks */,
 				935B5D9D2632C6CC00EAF57D /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +109,7 @@
 			children = (
 				938FC49F26304B920028F943 /* Authentication */,
 				938FC4A726304BE60028F943 /* HomeViewController.swift */,
+				935B5DA32632CB4300EAF57D /* SideMenuViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 			name = LogUserInApp;
 			packageProductDependencies = (
 				935B5D9C2632C6CC00EAF57D /* IQKeyboardManagerSwift */,
+				935B5DA02632CAF200EAF57D /* SideMenu */,
 			);
 			productName = LogUserInApp;
 			productReference = 938FC457262EE75B0028F943 /* LogUserInApp.app */;
@@ -215,6 +221,7 @@
 			mainGroup = 938FC44E262EE75B0028F943;
 			packageReferences = (
 				935B5D9B2632C6CC00EAF57D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				935B5D9F2632CAF200EAF57D /* XCRemoteSwiftPackageReference "SideMenu" */,
 			);
 			productRefGroup = 938FC458262EE75B0028F943 /* Products */;
 			projectDirPath = "";
@@ -245,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				935B5DA42632CB4300EAF57D /* SideMenuViewController.swift in Sources */,
 				938FC48626304B470028F943 /* Extension.swift in Sources */,
 				938FC4DF2630AED40028F943 /* CostumTextField.swift in Sources */,
 				93C60A4F2631B3AA00454F55 /* AuthenticationViewModel.swift in Sources */,
@@ -463,6 +471,14 @@
 				minimumVersion = 6.5.6;
 			};
 		};
+		935B5D9F2632CAF200EAF57D /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -470,6 +486,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 935B5D9B2632C6CC00EAF57D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		935B5DA02632CAF200EAF57D /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 935B5D9F2632CAF200EAF57D /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

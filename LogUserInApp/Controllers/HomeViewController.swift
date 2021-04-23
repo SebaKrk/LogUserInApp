@@ -6,16 +6,23 @@
 //
 
 import UIKit
+import SideMenu
 
 class HomeViewController : UIViewController {
     
     var user : String?
+    var menu : SideMenuNavigationController?
     
     private let backgroundView = UIImageView(image: #imageLiteral(resourceName: "homePage"))
     
     private let logOutButton : CostumIcon = {
         let button = CostumIcon(color: .lightGray, name: "close")
         button.addTarget(self, action: #selector(logUserOut), for: .touchUpInside)
+        return button
+    }()
+    private let menuButton : CostumIcon = {
+        let button = CostumIcon(color: .lightGray, name: "hamburger")
+        button.addTarget(self, action: #selector(handleMenuToggle), for: .touchUpInside)
         return button
     }()
     
@@ -27,23 +34,36 @@ class HomeViewController : UIViewController {
     }()
     
     
-//    MARK: - ViewDidLoad
-
+    //    MARK: - ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupConstraints()
         showWelcomeLabel()
+        setupSlideMenu()
     }
     
-//    MARK: - Action
+    //    MARK: - Action
     
     @objc func logUserOut() {
         print("DEBUG: log user out")
     }
+    @objc func handleMenuToggle() {
+        print("DEBUG: present SideMenu")
+        present(menu!, animated: true, completion: nil)
+    }
+    
+    //    MARK: SideMenu
+    
+    func setupSlideMenu() {
+        menu = SideMenuNavigationController(rootViewController: SideMenuViewController())
+        menu?.leftSide = true
+        menu?.setNavigationBarHidden(true, animated: false)
+    }
     
     
-//    MARK: - SetupView
+    //    MARK: - SetupView
     
     func setupView() {
         view.backgroundColor = .white
@@ -65,9 +85,15 @@ class HomeViewController : UIViewController {
         }
     }
     
-//    MARK: - SetupConstraints
+    //    MARK: - SetupConstraints
     
     func setupConstraints() {
+        
+        view.addSubview(menuButton)
+        menuButton.translatesAutoresizingMaskIntoConstraints = false
+        menuButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 20).isActive = true
+        menuButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40).isActive = true
+        
         view.addSubview(logOutButton)
         logOutButton.translatesAutoresizingMaskIntoConstraints = false
         logOutButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 20).isActive = true
