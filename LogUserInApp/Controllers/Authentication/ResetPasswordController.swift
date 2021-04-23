@@ -40,6 +40,7 @@ class ResetPasswordController : UIViewController {
         setupConstraints()
         loadEmail()
         configureTextFieldObservers()
+        self.dismissKeyboard()
     }
     
 //    MARK: - Action

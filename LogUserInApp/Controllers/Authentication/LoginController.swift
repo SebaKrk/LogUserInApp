@@ -65,6 +65,7 @@ class LoginController : UIViewController {
         setupConstraints()
         setupStackView()
         configureTextFieldObservers()
+        self.dismissKeyboard()
     }
     
     //    MARK: - Action

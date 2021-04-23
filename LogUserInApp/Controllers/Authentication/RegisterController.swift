@@ -59,6 +59,7 @@ class RegisterController : UIViewController {
         setupStackView()
         setupConstraints()
         configureTextFieldObservers()
+        self.dismissKeyboard()
     }
     
 //    MARK: - Action
