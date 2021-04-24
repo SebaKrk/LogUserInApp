@@ -14,7 +14,7 @@ class HomeViewController : UIViewController {
     
     private var user : User? {
         didSet {
-            print("did set user")
+            print("DEBUG: Did set user")
             showWelcomeLabel()
         }
     }
@@ -48,7 +48,7 @@ class HomeViewController : UIViewController {
         authenticateUser()
         setupView()
         setupConstraints()
-        showWelcomeLabel()
+//        showWelcomeLabel()
         setupSlideMenu()
     }
     
@@ -63,7 +63,9 @@ class HomeViewController : UIViewController {
         present(menu!, animated: true, completion: nil)
     }
     //    MARK: - API
+    
     func fetchUser() {
+        print("DEBUG: FetchUser")
         Service.fetchUser { user in
             self.user = user
         }
@@ -99,7 +101,6 @@ class HomeViewController : UIViewController {
         menu?.setNavigationBarHidden(true, animated: false)
     }
     
-    
     //    MARK: - SetupView
     
     func setupView() {
@@ -115,7 +116,7 @@ class HomeViewController : UIViewController {
             print("DEBUG: No User")
             return
         }
-        welcomeLabel.text = "Welcome \(user.fullName)"
+        welcomeLabel.text = "Welcome\n\(user.fullName)"
         
         UIView.animate(withDuration: 1) {
             self.welcomeLabel.alpha = 1
@@ -145,9 +146,17 @@ class HomeViewController : UIViewController {
     
     func presentLoginController() {
         let controller = LoginController()
+        controller.delegate = self
         let nav = UINavigationController(rootViewController: controller)
         nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true, completion: nil)
+    }
+}
+extension HomeViewController : AuthenticationDelegate {
+    func authorezationComplete() {
+        print("home controller - logindelegate")
+        dismiss(animated: true, completion: nil)
+        fetchUser()
     }
 }
 

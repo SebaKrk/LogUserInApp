@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol AuthenticationDelegate : class {
+    func authorezationComplete()
+}
+
 class LoginController : UIViewController {
+    
+    var delegate : AuthenticationDelegate?
     
     private var viewModel = LoginViewModel()
     
@@ -74,6 +80,7 @@ class LoginController : UIViewController {
         print("DEBUG: Forgot Password button pressed")
         let nav = ResetPasswordController()
         nav.email = emailTextField.text
+        nav.delegate = self
         navigationController?.pushViewController(nav, animated: true)
     }
     @objc func handleLogUserIn() {
@@ -89,13 +96,14 @@ class LoginController : UIViewController {
                 return
             } else {
                 print("DEBUG: User login")
-                self.dismiss(animated: true, completion: nil)
+                self.delegate?.authorezationComplete()
             }
         }
     }
     @objc func handleRegister() {
         print("DEBUG: Register button pressed")
         let nav = RegisterController()
+        nav.delegate = delegate
         navigationController?.pushViewController(nav, animated: true)
     }
     @objc func handleApple(){
@@ -191,3 +199,12 @@ class LoginController : UIViewController {
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
 }
+// MARK: - Extensions
+
+extension LoginController : ResetPasswordDelegate {
+    func didSendResetPassword() {
+        print("DEBUG: LoginController, Password send")
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+

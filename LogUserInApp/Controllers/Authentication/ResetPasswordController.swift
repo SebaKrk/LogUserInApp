@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol ResetPasswordDelegate : class {
+    func didSendResetPassword()
+}
+
 class ResetPasswordController : UIViewController {
+    
+    var delegate : ResetPasswordDelegate?
     
     var email : String?
     
@@ -56,7 +62,7 @@ class ResetPasswordController : UIViewController {
                 return
             } else {
                 print("DEBUG: Password send")
-                self.navigationController?.popViewController(animated: true)
+                self.delegate?.didSendResetPassword()
             }
         }
     }

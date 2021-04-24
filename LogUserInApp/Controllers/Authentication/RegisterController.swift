@@ -9,6 +9,8 @@ import UIKit
 
 class RegisterController : UIViewController {
     
+    weak var delegate : AuthenticationDelegate?
+    
     private var viewModel = RegistrationViewModel()
     
     private let backgroundView = UIImageView(image: #imageLiteral(resourceName: "registerPage"))
@@ -82,12 +84,9 @@ class RegisterController : UIViewController {
                 return
             }
             print("DEBUG: Register User Sucessfuly")
-//            let controller = HomeViewController()
-//            self.navigationController?.pushViewController(controller, animated: true)
-            self.dismiss(animated: true, completion: nil)
+            
+            self.delegate?.authorezationComplete()
         }
-        
-        
     }
     @objc func handleApple(){
         print("DEBUG: Apple button pressed")
@@ -186,5 +185,4 @@ class RegisterController : UIViewController {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
-    
 }
