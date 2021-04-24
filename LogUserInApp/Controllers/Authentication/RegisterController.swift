@@ -12,8 +12,9 @@ class RegisterController : UIViewController {
     private var viewModel = RegistrationViewModel()
     
     private let backgroundView = UIImageView(image: #imageLiteral(resourceName: "registerPage"))
-
+    
     private let titleLabel = CostumLabel(title: "Register", size: 42, color: .white)
+    
     private let fullNameTextField = CostumTextField(placeHolder: "Full Name", colorText: .white, isSecureText: false)
     private let emailTextField = CostumTextField(placeHolder: "Email", colorText: .white, isSecureText: false)
     private let passwordTextField = CostumTextField(placeHolder: "Password", colorText: .white, isSecureText: true)
@@ -51,7 +52,7 @@ class RegisterController : UIViewController {
         return button
     }()
     
-//    MARK: - ViewDidLoad
+    //    MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,13 +63,31 @@ class RegisterController : UIViewController {
         self.dismissKeyboard()
     }
     
-//    MARK: - Action
+    //    MARK: - Action
     @objc func handleLogUserIn() {
         print("DEBUG: LogUserIn button pressed")
         navigationController?.popViewController(animated: true)
     }
     @objc func handleRegister() {
         print("DEBUG: Register button pressed")
+        guard let fullName = fullNameTextField.text else { return }
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else {return }
+        
+        let credentials = AuthCredentials(fullName: fullName, email: email, password: password)
+        
+        Service.registerUser(withCredentials: credentials) { (error, reference) in
+            if let error = error {
+                print("DEBUG: Register User error \(error.localizedDescription)")
+                return
+            }
+            print("DEBUG: Register User Sucessfuly")
+//            let controller = HomeViewController()
+//            self.navigationController?.pushViewController(controller, animated: true)
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        
     }
     @objc func handleApple(){
         print("DEBUG: Apple button pressed")
@@ -89,9 +108,9 @@ class RegisterController : UIViewController {
         }
         checkFormStatus()
     }
-
     
-//    MARK: - SetupView
+    
+    //    MARK: - SetupView
     
     func setupView() {
         view.backgroundColor = .white
@@ -116,7 +135,7 @@ class RegisterController : UIViewController {
         stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -40).isActive = true
     }
     
-//    MARK: - SetupConstraints
+    //    MARK: - SetupConstraints
     
     func setupConstraints() {
         view.addSubview(titleLabel)
@@ -149,7 +168,7 @@ class RegisterController : UIViewController {
         loginButton.rightAnchor.constraint(equalTo: view.rightAnchor,constant: -40).isActive = true
         loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -40).isActive = true
     }
-//    MARK: - Helpers
+    //    MARK: - Helpers
     
     func checkFormStatus() {
         if viewModel.formIsValid {

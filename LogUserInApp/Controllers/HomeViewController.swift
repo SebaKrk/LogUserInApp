@@ -7,10 +7,17 @@
 
 import UIKit
 import SideMenu
+import Firebase
+import CodableFirebase
 
 class HomeViewController : UIViewController {
     
-    var user : String?
+    private var user : User? {
+        didSet {
+            print("did set user")
+            showWelcomeLabel()
+        }
+    }
     var menu : SideMenuNavigationController?
     
     private let backgroundView = UIImageView(image: #imageLiteral(resourceName: "homePage"))
@@ -38,6 +45,7 @@ class HomeViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        authenticateUser()
         setupView()
         setupConstraints()
         showWelcomeLabel()
@@ -48,10 +56,39 @@ class HomeViewController : UIViewController {
     
     @objc func logUserOut() {
         print("DEBUG: log user out")
+        logOut()
     }
     @objc func handleMenuToggle() {
         print("DEBUG: present SideMenu")
         present(menu!, animated: true, completion: nil)
+    }
+    //    MARK: - API
+    func fetchUser() {
+        Service.fetchUser { user in
+            self.user = user
+        }
+    }
+    
+    func authenticateUser() {
+        if Auth.auth().currentUser?.uid == nil {
+            DispatchQueue.main.async {
+                print("DEBUG: User is not login")
+                self.presentLoginController()
+            }
+        } else {
+            print("DEBUG: User is logged in")
+            fetchUser()
+        }
+    }
+    
+    func logOut() {
+        do {
+            try Auth.auth().signOut()
+            print("DEBUG: SignOut User")
+            presentLoginController()
+        } catch {
+            print("DEBUG: Error signed out")
+        }
     }
     
     //    MARK: SideMenu
@@ -78,7 +115,7 @@ class HomeViewController : UIViewController {
             print("DEBUG: No User")
             return
         }
-        welcomeLabel.text = "Welcome \(user)"
+        welcomeLabel.text = "Welcome \(user.fullName)"
         
         UIView.animate(withDuration: 1) {
             self.welcomeLabel.alpha = 1
@@ -103,6 +140,14 @@ class HomeViewController : UIViewController {
         welcomeLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         welcomeLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40).isActive = true
         welcomeLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -40).isActive = true
+    }
+    //    MARK: - Helpers
+    
+    func presentLoginController() {
+        let controller = LoginController()
+        let nav = UINavigationController(rootViewController: controller)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true, completion: nil)
     }
 }
 

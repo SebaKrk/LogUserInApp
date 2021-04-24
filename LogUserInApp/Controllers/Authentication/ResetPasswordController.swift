@@ -38,15 +38,27 @@ class ResetPasswordController : UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraints()
-        loadEmail()
         configureTextFieldObservers()
         self.dismissKeyboard()
+        loadEmail()
+
     }
     
 //    MARK: - Action
     
     @objc func handleReset() {
         print("DEBUG: Reset button pressed")
+        guard let email = viewModel.email else {return}
+        
+        Service.resetPassword(withEmail: email) { (error) in
+            if let error = error {
+                print("DEBUG: ResetPassword error - \(error.localizedDescription)")
+                return
+            } else {
+                print("DEBUG: Password send")
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     @objc func handleDismissal() {
@@ -103,7 +115,9 @@ class ResetPasswordController : UIViewController {
     
     func loadEmail() {
         guard let email = email else {return}
+        viewModel.email = email
         emailTextField.text = email
+        checkFormStatus()
     }
     func checkFormStatus() {
         if viewModel.formIsValid {
