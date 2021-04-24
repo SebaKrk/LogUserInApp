@@ -101,7 +101,7 @@ class RegisterController : UIViewController {
             viewModel.fullName = sender.text
         } else if sender == passwordTextField {
             viewModel.password = sender.text
-        }
+        }            
         checkFormStatus()
     }
     

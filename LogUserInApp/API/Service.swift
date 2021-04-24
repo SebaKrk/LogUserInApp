@@ -29,7 +29,7 @@ struct Service {
     static func registerUser(withCredentials credentials:AuthCredentials, completion: @escaping( (Error?, DatabaseReference) -> Void)) {
         Auth.auth().createUser(withEmail: credentials.email, password: credentials.password) { (result, error) in
             if let error = error {
-                print("DEBUG: Create user error : \(error.localizedDescription)")
+                completion(error, Database.database().reference().child("users"))
                 return
             }
             guard let uid = result?.user.uid else {return}

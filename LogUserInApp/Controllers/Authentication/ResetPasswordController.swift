@@ -103,6 +103,7 @@ class ResetPasswordController : UIViewController {
         titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 40).isActive = true
         
         view.addSubview(emailTextField)
+    
         emailTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,constant: 20).isActive = true
         emailTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         emailTextField.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 40).isActive = true
