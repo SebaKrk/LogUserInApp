@@ -67,24 +67,21 @@ class RegisterController : UIViewController {
     
     //    MARK: - Action
     @objc func handleLogUserIn() {
-        print("DEBUG: LogUserIn button pressed")
         navigationController?.popViewController(animated: true)
     }
     @objc func handleRegister() {
-        print("DEBUG: Register button pressed")
         guard let fullName = fullNameTextField.text else { return }
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else {return }
         
         let credentials = AuthCredentials(fullName: fullName, email: email, password: password)
-        
+        showActivitiIndicator(true)
         Service.registerUser(withCredentials: credentials) { (error, reference) in
+            self.showActivitiIndicator(false)
             if let error = error {
-                print("DEBUG: Register User error \(error.localizedDescription)")
+                self.showMasage(withTitle: "Error", message: error.localizedDescription)
                 return
             }
-            print("DEBUG: Register User Sucessfuly")
-            
             self.delegate?.authorezationComplete()
         }
     }

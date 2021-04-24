@@ -48,16 +48,17 @@ class HomeViewController : UIViewController {
         authenticateUser()
         setupView()
         setupConstraints()
-//        showWelcomeLabel()
         setupSlideMenu()
     }
     
     //    MARK: - Action
     
     @objc func logUserOut() {
-        print("DEBUG: log user out")
-        logOut()
+        showAlertSheet(withTitle: "", message: "Are you sure to want to logout ?", alertAction: "Logout") { (_) in
+            self.logOut()
+        }
     }
+    
     @objc func handleMenuToggle() {
         print("DEBUG: present SideMenu")
         present(menu!, animated: true, completion: nil)
@@ -154,7 +155,6 @@ class HomeViewController : UIViewController {
 }
 extension HomeViewController : AuthenticationDelegate {
     func authorezationComplete() {
-        print("home controller - logindelegate")
         dismiss(animated: true, completion: nil)
         fetchUser()
     }

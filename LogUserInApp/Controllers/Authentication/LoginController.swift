@@ -77,31 +77,29 @@ class LoginController : UIViewController {
     //    MARK: - Action
     
     @objc func handleForgotPassword() {
-        print("DEBUG: Forgot Password button pressed")
         let nav = ResetPasswordController()
         nav.email = emailTextField.text
         nav.delegate = self
         navigationController?.pushViewController(nav, animated: true)
     }
     @objc func handleLogUserIn() {
-        print("DEBUG: LogUserIn button pressed")
-
         
         guard let emial = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
+        showActivitiIndicator(true)
+        
         Service.logUserIn(withEmail: emial, password: password) { (result, error) in
+            self.showActivitiIndicator(false)
             if let error = error {
-                print("DEBUG: LogUserIn error - \(error.localizedDescription)")
+                self.showMasage(withTitle: "Error", message: error.localizedDescription)
                 return
             } else {
-                print("DEBUG: User login")
                 self.delegate?.authorezationComplete()
             }
         }
     }
     @objc func handleRegister() {
-        print("DEBUG: Register button pressed")
         let nav = RegisterController()
         nav.delegate = delegate
         navigationController?.pushViewController(nav, animated: true)
@@ -203,8 +201,9 @@ class LoginController : UIViewController {
 
 extension LoginController : ResetPasswordDelegate {
     func didSendResetPassword() {
-        print("DEBUG: LoginController, Password send")
+        
         self.navigationController?.popViewController(animated: true)
+        showMasage(withTitle: "Sucess", message: "Reset email send")
     }
 }
 

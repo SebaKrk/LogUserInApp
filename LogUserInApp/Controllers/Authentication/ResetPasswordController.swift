@@ -40,6 +40,8 @@ class ResetPasswordController : UIViewController {
         return button
     }()
     
+//    MARK: - ViewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -53,22 +55,20 @@ class ResetPasswordController : UIViewController {
 //    MARK: - Action
     
     @objc func handleReset() {
-        print("DEBUG: Reset button pressed")
         guard let email = viewModel.email else {return}
-        
+        showActivitiIndicator(true)
         Service.resetPassword(withEmail: email) { (error) in
+            self.showActivitiIndicator(false)
             if let error = error {
-                print("DEBUG: ResetPassword error - \(error.localizedDescription)")
+                self.showMasage(withTitle: "Error", message: error.localizedDescription)
                 return
             } else {
-                print("DEBUG: Password send")
                 self.delegate?.didSendResetPassword()
             }
         }
     }
     
     @objc func handleDismissal() {
-        print("DEBUG: handle dissmis")
         navigationController?.popViewController(animated: true)
     }
     @objc func textDidChange(sender: UITextField) {
