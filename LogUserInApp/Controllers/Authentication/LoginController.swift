@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 protocol AuthenticationDelegate : class {
     func authorezationComplete()
@@ -71,7 +72,9 @@ class LoginController : UIViewController {
         setupConstraints()
         setupStackView()
         configureTextFieldObservers()
+        configureGoogleSignIn()
         self.dismissKeyboard()
+        
     }
     
     //    MARK: - Action
@@ -112,6 +115,7 @@ class LoginController : UIViewController {
     }
     @objc func handleGmail(){
         print("DEBUG: Gmail button pressed")
+        GIDSignIn.sharedInstance()?.signIn()
     }
     @objc func textDidChange(sender: UITextField) {
         if sender == emailTextField {
@@ -196,6 +200,10 @@ class LoginController : UIViewController {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
+    func configureGoogleSignIn() {
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.delegate = self
+    }
 }
 // MARK: - Extensions
 
@@ -207,3 +215,16 @@ extension LoginController : ResetPasswordDelegate {
     }
 }
 
+extension LoginController : GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        Service.signInWithGoogle(didSignInFor: user) { (error, reference) in
+            if let error = error {
+                print("DEBUG: Google - \(error.localizedDescription)")
+                return
+            } else  {
+                print("DEBUG: Successfully sign in with google ...")
+                self.delegate?.authorezationComplete()
+            }
+        }
+    }
+}

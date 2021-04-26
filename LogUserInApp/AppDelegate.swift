@@ -8,6 +8,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import Firebase
+import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.keyboardDistanceFromTextField = 200
         
         FirebaseApp.configure()
+        
+        GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
         
         return true
     }

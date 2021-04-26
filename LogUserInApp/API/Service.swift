@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import CodableFirebase
+import GoogleSignIn
 
 struct AuthCredentials {
     
@@ -51,5 +52,33 @@ struct Service {
             }
         }
     }
+    static func signInWithGoogle(didSignInFor user: GIDGoogleUser, completion: @escaping( (Error?, DatabaseReference) -> Void)) {
+        guard let authentication = user.authentication else { return }
+        let credencial = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        
+        Auth.auth().signIn(with: credencial) { (result, error) in
+            if let error = error {
+                print("DEBUG: Error GoogleSigIn - \(error.localizedDescription)")
+                return
+            }
+            guard let uid = result?.user.uid else { return }
+            
+            Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value) { (snapshot) in
+                if !snapshot.exists() {
+                    print("DEBUG: User not exist, create a user")
+                    
+                    guard let email = result?.user.email else {return}
+                    guard  let fullName = result?.user.displayName else {return}
+                    
+                    let values = ["email" : email, "fullName" : fullName] as [String : Any]
+                    Database.database().reference().child("users").child(uid).updateChildValues(values, withCompletionBlock: completion)
+                } else {
+                    print("DEBUG: User allredy exitst")
+                    completion(error,Database.database().reference().child("users").child(uid))
+                }
+            }
+        }
+    }
+    
 }
 
