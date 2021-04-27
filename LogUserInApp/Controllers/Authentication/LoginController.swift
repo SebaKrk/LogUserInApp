@@ -217,6 +217,10 @@ extension LoginController : ResetPasswordDelegate {
 
 extension LoginController : GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if user == nil {
+            print("DEBUG: signInWithGoogle error - no user")
+            return
+        }
         Service.signInWithGoogle(didSignInFor: user) { (error, reference) in
             if let error = error {
                 print("DEBUG: Google - \(error.localizedDescription)")
