@@ -87,7 +87,6 @@ struct Service {
             }
         }
     }
-//    completion1: @escaping ((AuthDataResult?, Error?)-> Void)
     //    MARK: - sign In With Facebook
     
     static func signInWithFacebook(on vc: UIViewController,completion1: @escaping ((AuthDataResult?, Error?)-> Void) ,completion: @escaping( (Error?, DatabaseReference) -> Void)) {
@@ -115,7 +114,7 @@ struct Service {
                         guard let email = result?.user.email else { return }
                         guard let fullname = result?.user.displayName else { return }
                         
-                        let values = ["email": email, "fullname": fullname]
+                        let values = ["email": email, "fullName": fullname]
                         Database.database().reference().child("users").child(uid).updateChildValues(values, withCompletionBlock: completion)
                     } else {
                         print("DEBUG: User allredy exitst")
@@ -123,8 +122,6 @@ struct Service {
                     }
                 }
             }
-            
-           
         }
     }
     
