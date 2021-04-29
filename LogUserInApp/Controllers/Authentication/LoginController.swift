@@ -127,30 +127,7 @@ class LoginController : UIViewController {
             print("DEBUG: user create - \(reference)")
             self.delegate?.authorezationComplete()
         }
-
-        
-//        let loginManager = LoginManager()
-//        loginManager.logIn(permissions: ["public_profile", "email"], from: self) { (result, error) in
-//            if let error = error {
-//                print("DEBUG: Error FB login - \(error.localizedDescription)")
-//                return
-//            }
-//            print("DEBUG: Acces token - \(result?.token?.tokenString)")
-//
-//
-//            if let token = AccessToken.current, !token.isExpired {
-//                      let token = token.tokenString
-//                      let request = FBSDKLoginKit.GraphRequest(graphPath: "me",
-//                                                               parameters: ["fields": "email, name"],
-//                                                               tokenString: token,
-//                                                               version: nil,
-//                                                               httpMethod: .get)
-//                      request.start { (connecion, result, error) in
-//                          print(result)
-//                      }
-//                  }
-//              }
-        }
+    }
     
     @objc func handleGmail(){
         print("DEBUG: Gmail button pressed")
