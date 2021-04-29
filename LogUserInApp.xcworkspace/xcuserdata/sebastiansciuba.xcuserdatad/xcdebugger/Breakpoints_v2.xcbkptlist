@@ -30,9 +30,9 @@
             filePath = "LogUserInApp/Controllers/Authentication/LoginController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "handleGmail()"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "textDidChange(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

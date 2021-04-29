@@ -112,10 +112,12 @@ class LoginController : UIViewController {
     }
     @objc func handleFacebook(){
         print("DEBUG: Facebook button pressed")
+        
     }
     @objc func handleGmail(){
         print("DEBUG: Gmail button pressed")
         GIDSignIn.sharedInstance()?.signIn()
+        
     }
     @objc func textDidChange(sender: UITextField) {
         if sender == emailTextField {
